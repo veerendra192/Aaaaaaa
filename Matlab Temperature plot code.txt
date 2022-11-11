@@ -1,21 +1,21 @@
->> L = 0.25
->> D=0.02
->> Tb = 100
->> Ta=30
->> K=330
->> H=7
->> syms Theta(x)
->> Dy= diff(Theta,x,1)
->> cond=[Theta(0)==(Tb-Ta),Dy(L)==0]
->> P=(pi*D)
->> A=(pi*D^2/4)
->> m= sqrt(H*P/(K*A))
->> eqn = diff(Theta, x, 2)-((m^2)*Theta)
->> Theta = dsolve(eqn, cond) 
->> TL = ((Tb-Ta)*(1/cosh(m*L)))+(Ta)
->> pretty(Theta)
->> fplot(Theta,[0,L])
->> grid on
->> title('Temperature distribution');
->> xlabel('Length of the Fin (in meters)');
->> ylabel('Temperature(in degree centigrade)');
+L = 0.25
+D=0.02
+Tb = 100
+Ta=30 
+K=330
+H=7
+syms Theta(x)
+Dy= diff(Theta,x,1)
+cond=[Theta(0)==(Tb-Ta),Dy(L)==0]
+P=(pi*D)
+A =(pi*D^2/4)
+m= sqrt(H*P/(K*A))
+eqn = diff(Theta, x, 2)-((m^2)*Theta)
+Theta = dsolve(eqn, cond) 
+TL = ((Tb-Ta)*(1/cosh(m*L)))+(Ta)
+pretty(Theta)
+fplot(Theta,[0,L])
+grid on
+title('Temperature distribution');
+xlabel('Length of the Fin (in meters)');
+ylabel('Temperature(in degree centigrade)');
