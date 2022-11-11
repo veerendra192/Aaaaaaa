@@ -1,0 +1,22 @@
+>> L = 5
+>> H = 4
+>> t = 0.25
+>> T1 = 110
+>> T2 = 40
+>> K = 0.7
+>> x = 0.1
+>> A = (L * H) 
+>> Q = (((K*A)*(T1-T2))/t);
+>> syms T(x)
+>> T(0)==T1
+>> T(t)==T2
+>> cond = [T(0)==T1, T(t)==T2];
+>> eqn = diff(T, x, 1)+(Q/(K*A))
+>> T = dsolve(eqn, cond)
+>> Tx = (T1-(Q*x/(K*A)))
+>> pretty(T)
+>> fplot(T,[0,t])
+>> grid on
+>> title('Temperature Distribution');
+>> xlabel('Thickness of the brick wall (in meters)');
+>> ylabel('Temperature (in degree centigrade)');

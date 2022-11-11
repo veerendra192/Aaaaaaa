@@ -1,0 +1,21 @@
+close all;
+clear all;
+clc;
+L = 5;
+Tb = 500; 
+gridpoints = 101; 
+steps = 100000;
+dx = L/(gridpoints-1);
+x = 0:dx:L;
+T=zeros(1,gridpoints);
+for j=1:1:steps
+ T(1)=Tb;
+ for i=2:1:gridpoints-1
+ T(i)=(T(i+1)+T(i-1))/2;
+ end
+ T(gridpoints)=T(gridpoints-1);
+end
+plot(x,T)
+title('1-D heat trasfer from fin with adiabatic tip');
+xlabel('Length of fin (m)');
+ylabel('Temperature (K)');

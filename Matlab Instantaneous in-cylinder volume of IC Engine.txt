@@ -1,0 +1,21 @@
+close all; 
+clear all;
+clc;
+Rc = 9;
+b = 87.5;
+s = 110;
+l = 232;
+r = s/2;
+R = l/r;
+Vdisp = pi*0.25*b*b*s;
+Vcl = Vdisp/(Rc-1);
+theta=0;
+crank=1:1:360;
+for i=1:1:360
+V(i) = Vcl+0.5*Vdisp*(1+R-cosd(theta)-sqrt(R^2-(sind(theta))^2));
+theta=theta+1;
+end
+plot(crank,V)
+title('Instantaneous in-cylinder volume of IC Engine');
+xlabel('Crank angle (degree)');
+ylabel('Volume (mm^3)');
